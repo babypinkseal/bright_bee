@@ -1,0 +1,47 @@
+package com.example.brightbeemd
+
+import org.junit.Test
+
+import org.junit.Assert.*
+
+/**
+ * Example local unit test, which will execute on the development machine (host).
+ *
+ * See [testing documentation](http://d.android.com/tools/testing).
+ */
+class ExampleUnitTest {
+    @Test
+    fun addition_isCorrect() {
+        assertEquals(4, 2 + 2)
+    }
+}
+
+//class MainActivity : ComponentActivity() {
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        setContent {
+//            BrightBeeMDTheme {
+//                // A surface container using the 'background' color from the theme
+//                Surface(
+//                    modifier = Modifier.fillMaxSize(),
+//                    color = MaterialTheme.colors.background
+//                ) {
+//                    Greeting("Android")
+//                }
+//            }
+//        }
+//    }
+//}
+//
+//@Composable
+//fun Greeting(name: String) {
+//    Text(text = "Hello $name!")
+//}
+//
+//@Preview(showBackground = true)
+//@Composable
+//fun DefaultPreview() {
+//    BrightBeeMDTheme {
+//        Greeting("Android")
+//    }
+//}
