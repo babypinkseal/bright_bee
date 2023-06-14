@@ -1,7 +1,7 @@
 # Model Deployment Bright Bee
 Deploy Machine Learning Model in Google Cloud Run Using Flask
 
-##Requirements
+## Requirements
 - Flask
 - Tensorflow
 - numpy
