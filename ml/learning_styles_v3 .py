@@ -129,3 +129,22 @@ model.save('/content/model/modelfinal.h5')
 #pickle.dump(model, open('model.pkl', 'wb'))
 #pickled_model = pickle.load(open('model.pkl', 'rb'))
 #pickled_model.predict(X_test2)
+
+print(tf.__version__)
+
+pip install tensorflow tensorflow-lite
+
+model.save('model pb','pb')
+
+convert_model = tf.lite.TFLiteConverter.from_saved_model('model pb')
+
+convert_model.target_spec.supported_ops = [
+    tf.lite.OpsSet.TFLITE_BUILTINS, # enable TensorFlow Lite ops.
+    tf.lite.OpsSet.SELECT_TF_OPS # enable TensorFlow ops.
+]
+
+test_lite = convert_model.convert()
+
+# Save the model.
+with open('modelfinal.tflite', 'wb') as f:
+  f.write(test_lite)
