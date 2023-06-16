@@ -46,7 +46,19 @@ def preprocessDataAndPredict(Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, Q11, Q12, 
 def map_predicted_class(prediction):
     class_labels = {0: 'kinestetik', 1: 'audio', 2: 'visual'}
     predicted_label = np.argmax(prediction, axis=1)[0]
-    return class_labels.get(predicted_label, 'Unknown')
+
+    # Get the probabilities for each class
+    probabilities = prediction[0]
+
+    if predicted_label == 0:
+        if probabilities[0] > probabilities[1] and probabilities[0] > probabilities[2]:
+            return class_labels[0]  # kinetik
+    elif predicted_label == 1:
+        if probabilities[1] > probabilities[0] and probabilities[1] > probabilities[2]:
+            return class_labels[1]  # audio
+    elif predicted_label == 2:
+        if probabilities[2] > probabilities[0] and probabilities[2] > probabilities[1]:
+            return class_labels[2]  # visual
 
 if __name__ == '__main__':
     app.run(debug=True)
