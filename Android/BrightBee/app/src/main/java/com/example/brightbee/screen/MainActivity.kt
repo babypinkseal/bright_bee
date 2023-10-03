@@ -54,31 +54,26 @@ fun MainAppTopBar() {
 }
 
 @Composable
-fun MainScreen() {
-    Column(modifier = Modifier.padding(16.dp)) {
-        Text(
-            text = stringResource(R.string.welcome_message),
-            style = MaterialTheme.typography.headlineMedium,
-            modifier = Modifier.padding(bottom = 16.dp)
-        )
-
-        Button(
-            onClick = { /* Handle survey button click */ },
-            modifier = Modifier.padding(bottom = 8.dp)
-        ) {
-            Text(text = stringResource(R.string.survey_button))
+fun MainScreen(surveys: List<Survey>, learningMaterials: List<LearningMaterial>) {
+    LazyColumn {
+        item {
+            Text(text = "Survei Tersedia")
         }
 
-        Button(
-            onClick = { /* Handle material list button click */ },
-            modifier = Modifier.padding(bottom = 8.dp)
-        ) {
-            Text(text = stringResource(R.string.material_list_button))
+        items(surveys) { survey ->
+            SurveyCard(survey)
         }
 
-        // Other buttons and components
+        item {
+            Text(text = "Materi Pembelajaran Terbaru")
+        }
+
+        items(learningMaterials) { material ->
+            LearningMaterialCard(material)
+        }
     }
 }
+
 
 @Composable
 fun SurveyCard(survey: Survey) {
