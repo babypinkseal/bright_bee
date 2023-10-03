@@ -79,6 +79,22 @@ fun SurveyQuestion(question: String) {
     }
 }
 
+@Composable
+fun SubmitButton(
+    isEnabled: Boolean,
+    onClick: () -> Unit
+) {
+    Button(
+        onClick = onClick,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp),
+        enabled = isEnabled
+    ) {
+        Text(text = "Kirim Jawaban")
+    }
+}
+
 @Preview
 @Composable
 fun SurveyScreenPreview() {
