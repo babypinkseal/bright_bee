@@ -80,6 +80,39 @@ fun MainScreen() {
     }
 }
 
+@Composable
+fun SurveyCard(survey: Survey) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp),
+        elevation = 4.dp
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp)
+        ) {
+            Text(text = survey.title, style = MaterialTheme.typography.h6)
+            Spacer(modifier = Modifier.height(8.dp))
+            Image(
+                painter = painterResource(id = survey.imageResId),
+                contentDescription = null,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(200.dp)
+                    .clip(shape = RoundedCornerShape(4.dp)),
+                contentScale = ContentScale.Crop
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            Button(
+                onClick = { /* Handle klik survei */ },
+                modifier = Modifier.align(Alignment.End)
+            ) {
+                Text(text = "Mulai Survei")
+            }
+        }
+    }
+}
+
 @Preview
 @Composable
 fun MainScreenPreview() {
