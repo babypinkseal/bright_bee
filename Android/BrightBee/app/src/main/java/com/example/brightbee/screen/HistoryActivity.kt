@@ -101,6 +101,37 @@ fun SurveyResultItem(surveyResult: SurveyResult) {
     }
 }
 
+@Composable
+fun UserScore(score: Int, learningStyle: String) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp)
+    ) {
+        Text(
+            text = "Skor Anda:",
+            style = MaterialTheme.typography.h6
+        )
+
+        Text(
+            text = score.toString(),
+            style = MaterialTheme.typography.h1,
+            color = MaterialTheme.colorScheme.primary
+        )
+
+        Text(
+            text = "Gaya Belajar Dominan Anda:",
+            style = MaterialTheme.typography.subtitle1,
+            modifier = Modifier.padding(top = 8.dp)
+        )
+
+        Text(
+            text = learningStyle,
+            style = MaterialTheme.typography.body1
+        )
+    }
+}
+
 fun getSampleSurveyResults(): SurveyResult {
     // Create a list of sample survey questions
     val questions = listOf(
